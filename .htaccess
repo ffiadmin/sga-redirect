@@ -1,2 +1,9 @@
+# Don't look at the directories and files!
+Options -Indexes
+ErrorDocument 403 /index.html
+
+# Rewrite all requests to /index.html (except) files that still exist
 RewriteEngine on
-RewriteRule ^(.*)\.(?!js|css)([^.]*)$ index.html [NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.html [L]
