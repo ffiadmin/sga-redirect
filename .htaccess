@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule .* index.html [NC]
+RewriteRule ^(.*)\.(?!js|css)([^.]*)$ index.html [NC]
